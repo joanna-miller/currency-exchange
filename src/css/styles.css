@@ -1,11 +1,40 @@
-#currency-list {
-  list-style-type: none;
+#header {
+  text-align: center;
+}
+#grid {
+  display: grid;
+  grid-template-columns: 70% 30%
+}
+
+.btn {
+  margin-top: 20px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+#result {
+  margin-top: 20px;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .overflow-auto {
   max-height: 400px;
   max-width: 200px;
   overflow-y: auto;
-  border: solid gray;
+  padding-right: 20px;
 } 
 
+#currency-list {
+  list-style-type: none;
+}
+
+#list {
+  max-width: 200px;
+  border: solid gray;
+  text-align: center;
+}
+
+#list > p {
+  text-align: center;
+}
