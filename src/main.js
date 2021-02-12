@@ -4,6 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import ExchangeService from "./js/exchange-service.js";
 
+async function createList() {
+  let response = await ExchangeService.exchangeRate();
+  let currenciesArray = Object.keys(response.conversion_rates);
+  console.log(currenciesArray);
+  currenciesArray.forEach(function(currency) {
+    $("#currency-list").append(`<li>${currency}</li>`);
+  });
+}
+
 async function getExchangeRate(dollar, forex) {
   let response = await ExchangeService.exchangeRate();
   const exchangeRate = (dollar * (response.conversion_rates[forex])).toFixed(2);
@@ -23,6 +32,7 @@ function clearFields() {
 }
 
 $(document).ready(function() {
+  createList();
   $("#exchange-form").submit(function(event) {
     event.preventDefault();
     let dollarAmount = parseInt($("#dollar-amount").val());
