@@ -1,4 +1,4 @@
-export default class CurrencyService {
+export default class ExchangeService {
   static async exchangeRate() {
     try {
       const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
@@ -10,5 +10,5 @@ export default class CurrencyService {
     } catch(error) {
       return console.log(error);
     }
-  }
+  } 
 }
