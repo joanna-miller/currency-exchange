@@ -6,11 +6,21 @@ import ExchangeService from "./js/exchange-service.js";
 
 async function getExchangeRates() {
   const response = await ExchangeService.exchangeRate();
-  console.log(response.conversion_rates);
+  return response;
 }
+
+
 
 $(document).ready(function() {
   getExchangeRates();
+  $("#exchange-form").submit(function(event) {
+    event.preventDefault();
+    let dollarAmount = parseInt($("#dollar-amount").val());
+    let currencyConvert = $("#currency-convert").val();
+    console.log(dollarAmount);
+    console.log(currencyConvert);
+    console.log(response.conversion_rates.EUR);
+  })
 });
 
 
