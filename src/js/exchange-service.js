@@ -5,10 +5,9 @@ export default class ExchangeService {
       if(!response.ok) {
         throw Error(response);
       }
-      console.log(response);
       return response.json();
     } catch(error) {
-      return console.log(error);
+      return (error);
     }
   } 
 }
