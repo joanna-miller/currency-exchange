@@ -11,6 +11,9 @@ async function createList() {
   currenciesArray.forEach(function(currency) {
     $("#currency-list").append(`<li>${currency}</li>`);
   });
+  $("li").bind("click", function() {
+    $("#currency-convert").val(($(this).text()))
+  });
 }
 
 async function getExchangeRate(dollar, forex) {
