@@ -6,29 +6,16 @@ import ExchangeService from "./js/exchange-service.js";
 
 async function getExchangeRate(forex) {
   let response = await ExchangeService.exchangeRate();
-  const exchangeRates = (response.conversion_rates.EUR);
-  console.log(exchangeRates);
+  const exchangeRate = (response.conversion_rates[forex]);
+  console.log(exchangeRate);
 }
-
-async function getEuro(dollar) {
-  let response = await ExchangeService.exchangeRate();
-  
-}
-  
-
 
 function clearFields() {
   $("#dollar-amount").val("");
   $("#currency-convert").val("");
 }
 
-$(".euro").click(function() {
-  let dollarAmount = parseInt($("#dollar-amount").val());
-  getEuro(dollarAmount);
-})
-
-
-/* $(document).ready(function() {
+$(document).ready(function() {
   $("#exchange-form").submit(function(event) {
     event.preventDefault();
     let dollarAmount = parseInt($("#dollar-amount").val());
@@ -39,6 +26,6 @@ $(".euro").click(function() {
     clearFields();
   });
   
-}); */
+}); 
 
 
