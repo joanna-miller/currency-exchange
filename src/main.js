@@ -4,13 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import ExchangeService from "./js/exchange-service.js";
 
-async function getExchangeRate(forex, dollar) {
+async function getExchangeRate(forex) {
   let response = await ExchangeService.exchangeRate();
-  console.log(dollar);
-  console.log(forex);
-  console.log(response.conversion_rates.forex);
-  
+  let exchangeRates = (response.conversion_rates);
+  if (exchangeRates.hasOwnProperty(forex)) {
+    console.log("found it");
+  }
 }
+
 
 function clearFields() {
   $("#dollar-amount").val("");
@@ -22,9 +23,11 @@ $(document).ready(function() {
     event.preventDefault();
     let dollarAmount = parseInt($("#dollar-amount").val());
     let currencyConvert = $("#currency-convert").val();
-    getExchangeRate(currencyConvert, dollarAmount);
+    console.log(dollarAmount);
+    console.log(currencyConvert);
+    getExchangeRate(currencyConvert);
     clearFields();
-  })
+  });
   
 });
 
