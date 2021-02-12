@@ -4,23 +4,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import ExchangeService from "./js/exchange-service.js";
 
-async function getExchangeRates() {
+async function getExchangeRate(forex) {
   const response = await ExchangeService.exchangeRate();
-  return response;
+  console.log(response.conversion_rates.forex);
 }
 
 
-
 $(document).ready(function() {
-  getExchangeRates();
+  
   $("#exchange-form").submit(function(event) {
     event.preventDefault();
     let dollarAmount = parseInt($("#dollar-amount").val());
     let currencyConvert = $("#currency-convert").val();
-    console.log(dollarAmount);
     console.log(currencyConvert);
-    console.log(response.conversion_rates.EUR);
+    console.log(dollarAmount);
+    getExchangeRate(currencyConvert);
   })
+  
 });
 
 
