@@ -5,26 +5,16 @@
 </head>
 <body>
   <div class="container">
-    <form class="row g-3 needs-validation" id="exchange-form">
-      <div class="col-md-3">
-        <label for="validationCustom05" class="form-label">Amount in USD</label>
-        <input type="text" class="form-control" id="dollar-amount" required>
-      </div>
-      <div class="col-md-3">
-        <label for="validationCustom04" class="form-label">Exchange Rate Currency</label>
-        <select class="form-select" id="currency-convert" required>
-          <option selected disabled value="">Choose...</option>
-          <option>EUR</option>
-          <option>JPY</option>
-          <option>GBP</option>
-          <option>CAD</option>
-          <option>CHF</option>
-        </select>
-      </div>
-      <div class="col-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
-      </div>
-    </form>
+    <div class="col-md-3">
+      <label for="validationCustom05" class="form-label">Amount in USD</label>
+      <input type="text" class="form-control" id="dollar-amount" required>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary euro" type="submit">In Euros</button>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary yen" type="submit">In Yen</button>
+    </div>
   </div>
 </body>
 </html>

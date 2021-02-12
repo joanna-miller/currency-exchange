@@ -6,11 +6,15 @@ import ExchangeService from "./js/exchange-service.js";
 
 async function getExchangeRate(forex) {
   let response = await ExchangeService.exchangeRate();
-  let exchangeRates = (response.conversion_rates);
-  if (exchangeRates.hasOwnProperty(forex)) {
-    console.log("found it");
-  }
+  const exchangeRates = (response.conversion_rates.EUR);
+  console.log(exchangeRates);
 }
+
+async function getEuro(dollar) {
+  let response = await ExchangeService.exchangeRate();
+  
+}
+  
 
 
 function clearFields() {
@@ -18,7 +22,13 @@ function clearFields() {
   $("#currency-convert").val("");
 }
 
-$(document).ready(function() {
+$(".euro").click(function() {
+  let dollarAmount = parseInt($("#dollar-amount").val());
+  getEuro(dollarAmount);
+})
+
+
+/* $(document).ready(function() {
   $("#exchange-form").submit(function(event) {
     event.preventDefault();
     let dollarAmount = parseInt($("#dollar-amount").val());
@@ -29,6 +39,6 @@ $(document).ready(function() {
     clearFields();
   });
   
-});
+}); */
 
 
