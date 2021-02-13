@@ -7,7 +7,6 @@ import ExchangeService from "./js/exchange-service.js";
 async function createList() {
   let response = await ExchangeService.exchangeRate();
   let currenciesArray = Object.keys(response.conversion_rates);
-  console.log(currenciesArray);
   currenciesArray.forEach(function(currency) {
     $("#currency-list").append(`<li>${currency}</li>`);
   });
@@ -18,13 +17,17 @@ async function createList() {
 
 async function getExchangeRate(dollar, forex) {
   let response = await ExchangeService.exchangeRate();
-  const exchangeRate = (dollar * (response.conversion_rates[forex])).toFixed(2);
-  if (isNaN(dollar)) {
-    $("#result").text(`Please enter a valid USD amount`);
-  } else if (isNaN(exchangeRate)) {
-    $("#result").text(`Please enter a valid exchange currency`);
+  if (response.result === "success") {
+    const exchangeRate = (dollar * (response.conversion_rates[forex])).toFixed(2);
+    if (isNaN(dollar)) {
+      $("#result").text(`Please enter a valid USD amount`);
+    } else if (isNaN(exchangeRate)) {
+      $("#result").text(`Please enter a valid exchange currency`);
+    } else {
+      $("#result").text(`$${dollar} is worth ${exchangeRate} ${forex}`);
+    }
   } else {
-    $("#result").text(`$${dollar} is worth ${exchangeRate} ${forex}`);
+    $("#result").text(`Sorry! ${response}`);
   }
 }
 
@@ -43,7 +46,6 @@ $(document).ready(function() {
     getExchangeRate(dollarAmount, currencyConvert);
     clearFields();
   });
-  
 }); 
 
 
