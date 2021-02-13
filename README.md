@@ -28,25 +28,25 @@ _Enter any amount (in U.S. Dollars) and choose any currency you would like to se
 
 ## Setup/Installation Requirements
 
+### Installing node.js
+
+* _on OS X Systems: install Node.js through [Homebrew](https://docs.brew.sh/Installation) in terminal with command $ brew install node_
+* _on Windows/Linux systems visit [Node](https://nodejs.org/en/download/) website and download appropriate installer for your OS._
+
+### Setup Instructions
+
 * _Clone this repository to your desktop_
-* _Navigate to top level of the directory_
-* _$ npm install_
-* _$ npm run build_
+* _Navigate to top level of the directory in terminal_
+* _To install dependencies use command $ npm install_
+* _Run command $ npm run build_
 
 ### To Utilize API
 
 * _Create a .env file in your root directory_
-* _[Click here](https://www.exchangerate-api.com/), input your email, and click the "Get Free Key" button._
+* _To get your own API key: [click here](https://www.exchangerate-api.com/), input your email, and click the "Get Free Key" button._
 * _Create an account with your email, name, and password._
 * _Your account dashboard will contain your personal API Key._
 * _Store your API key in your .env file in the following format: <br> API_KEY=[enter key here with no brackets]_
-
----
-
-## Known Bugs
-
-* _{Any known issues}_
-* _{should go here}_
 
 ---
 
