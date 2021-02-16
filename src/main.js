@@ -6,14 +6,19 @@ import ExchangeService from "./js/exchange-service.js";
 
 async function createList() {
   let response = await ExchangeService.exchangeRate();
-  let currenciesArray = Object.keys(response.conversion_rates);
-  currenciesArray.forEach(function(currency) {
-    $("#currency-list").append(`<li>${currency}</li>`);
-  });
-  $("li").bind("click", function() {
-    $("#currency-convert").val(($(this).text()))
-  });
+  if (response.result === "success") {
+    let currenciesArray = Object.keys(response.conversion_rates);
+    currenciesArray.forEach(function(currency) {
+      $("#currency-list").append(`<li>${currency}</li>`);
+    });
+    $("li").bind("click", function() {
+      $("#currency-convert").val(($(this).text()));
+    });
+  } else {
+    $("#currency-list").append(`<li>There was an error gathering list data</li>`);
+  }
 }
+
 
 async function getExchangeRate(dollar, forex) {
   let response = await ExchangeService.exchangeRate();
@@ -27,7 +32,7 @@ async function getExchangeRate(dollar, forex) {
       $("#result").text(`$${dollar} is worth ${exchangeRate} ${forex}`);
     }
   } else {
-    $("#result").text(`Sorry! ${response}`);
+    $("#result").text(`Sorry! The following error was found: "${response["error-type"]}".`);
   }
 }
 
