@@ -39,7 +39,7 @@ _Enter any amount (in U.S. Dollars) and choose any currency you would like to se
 * _Navigate to top level of the directory in terminal_
 * _To install dependencies use command $ npm install_
 * _Run command $ npm run build_
-* _Set up API key (see API instructions below)
+* _Set up API key (see API instructions below)_
 * _To open project in a live server, use command $ npm run start_
 
 ### To Utilize API
